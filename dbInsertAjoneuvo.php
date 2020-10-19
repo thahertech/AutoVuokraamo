@@ -11,11 +11,9 @@ if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
 $Automerkki = mysqli_real_escape_string($con, $_POST["Automerkki"]);
 $Rekisterinumero= mysqli_real_escape_string($con, $_POST["Rekisterinumero"]);
-$idSopimus= mysqli_real_escape_string($con, $_POST["idSopimus"]);
 
-
-$sql = "INSERT INTO  Ajoneuvo ( Automerkki , Rekisterinumero, idSopimus)
-VALUES ('$Automerkki ','$Rekisterinumero','$idSopimus')";
+$sql = "INSERT INTO  Ajoneuvo ( Automerkki , Rekisterinumero)
+VALUES ('$Automerkki ','$Rekisterinumero')";
 
 if (!mysqli_query($con, $sql)) {
 die('Error: ' . mysqli_error($con)); }
