@@ -13,9 +13,9 @@ $Summa = mysqli_real_escape_string($con,    $_POST["Summa"]   );
 //$Maksettu = mysqli_real_escape_string($con, $_POST["Maksettu"]);
 //$Maksupvä = mysqli_real_escape_string($con, $_POST["Maksupvä"]);
 
-$Maksettu = mysqli_real_escape_string($con, $_POST["Maksettu"]);
+$Maksettu = mysqli_real_escape_string($con,$_POST["Maksettu"]);
 $Maksupvä = mysqli_real_escape_string($con,$_POST["Maksupvä"]);
-
+date('y-m-d');
 $sql = "INSERT INTO Maksurekisteri ( Summa, Maksettu, Maksupvä)
 VALUES ('$Summa', '$Maksettu', '$Maksupvä')";
 

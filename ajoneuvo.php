@@ -2,6 +2,25 @@
 $host = 'localhost'; $dbname = 't9alth00'; $username = 't9alth00'; $password = '';
 $con = mysqli_connect($host,$username,$password,$dbname); if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
+$result = mysqli_query($con,"SELECT * FROM Sopimus");
+
+echo "<table border='5'> <tr>
+<th>SopimusID</th>
+<th>idMaksurekisteri</th>
+<th>Palautuspvä</th>
+<th>Aloituspvä</th> </tr>";
+
+while($row = mysqli_fetch_array($result)) {
+echo "<tr>";
+echo "<td>" . $row['SopimusID'] . "</td>";
+echo "<td>" . $row['idMaksurekisteri']           .    "</td>";
+echo "<td>" . $row[date('y-m-d')['Palautuspvä']] .    "</td>";
+echo "<td>" . $row[date('y-m-d')['Aloituspvä']]  .    "</td>";
+
+
+}
+echo "</table>";
+
 $result = mysqli_query($con,"SELECT * FROM Ajoneuvo" );
 
      
@@ -24,7 +43,10 @@ echo "</table>";
 $result = mysqli_query($con,"SELECT * FROM Asiakas");
 
 echo "<table border='1'> <tr>
-<th>asiakasID</th><th>Etunimi</th> <th>Sukunimi</th> <th>Osoite</th>
+<th>asiakasID</th>
+<th>Etunimi</th>
+<th>Sukunimi</th>
+<th>Osoite</th>
 <th>idSopimus</th> </tr>";
 while($row = mysqli_fetch_array($result)) { echo "<tr>";
 echo "<td>" . $row['asiakasID'] . "</td>";
