@@ -12,9 +12,11 @@ $asiakasID = mysqli_real_escape_string($con, $_POST["asiakasID"]);
 $Etunimi = mysqli_real_escape_string($con, $_POST["Etunimi"]);
 $Sukunimi = mysqli_real_escape_string($con, $_POST["Sukunimi"]);
 $Osoite = mysqli_real_escape_string($con, $_POST["Osoite"]);
+$idSopimus = mysqli_real_escape_string($con, $_POST["idSopimus"]);
 
-$sql = "INSERT INTO  Asiakas (AsiakasID, Etunimi, Sukunimi, Osoite)
-VALUES (NULL,'$Etunimi', '$Sukunimi', '$Osoite')";
+
+$sql = "INSERT INTO  Asiakas ( Etunimi, Sukunimi, Osoite, idSopimus)
+VALUES ('$Etunimi', '$Sukunimi', '$Osoite','$idSopimus')";
 
 
 if (!mysqli_query($con, $sql)) {

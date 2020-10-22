@@ -8,15 +8,14 @@ $password="";
 $con = mysqli_connect($host, $username, $password, $dbname);
 if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
-$SopimusID = mysqli_real_escape_string($con, $_POST["SopimusID"]);
-$idMaksurekisteri = mysqli_real_escape_string($con, $_POST["MaksuID"]);
-$Palautuspva = mysqli_real_escape_string($con, $_POST["Palautuspäivä"]);
-$Aloituspva = mysqli_real_escape_string($con, $_POST["Aloituspäivä"]);
+$idMaksurekisteri = mysqli_real_escape_string($con, $_POST["idMaksurekisteri"]);
+$Palautuspvä = mysqli_real_escape_string($con,date('Y-m-d',$_POST["Palautuspvä"]));
+$Aloituspvä = mysqli_real_escape_string($con,date('Y-m-d',$_POST["Aloituspvä"]));
+echo "<td>" . $row [date('Y-m-d')['Palautuspvä']] .    "</td>";
 
 
-
-$sql = "INSERT INTO Sopimus (idMaksurekisteri, Palautuspvä, Aloituspvä)
-VALUES ('$idMaksurekisteri', '$Palautuspvä','$Aloituspvä')";
+$sql = "INSERT INTO Sopimus (idMaksurekisteri , Palautuspvä , Aloituspvä)
+VALUES ('$idMaksurekisteri', '$Palautuspvä', '$Aloituspvä')";
 
 
 if (!mysqli_query($con, $sql)) {

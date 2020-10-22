@@ -24,6 +24,8 @@ echo "<table border='3'>
 <th>Summa</th> 
 <th>Maksettu</th> 
 <th>Maksupvä</th>
+<th>Maksupvä</th>
+
 </tr>"; 
 while($row = mysqli_fetch_array($result)) { 
 echo "<tr>"; 
@@ -31,6 +33,7 @@ echo "<td>" . $row['MaksuID'] . "</td>";
 echo "<td>" . $row['Summa'] . "</td>"; 
 echo "<td>" . $row['Maksettu'] . "</td>"; 
 echo "<td>" . $row['Maksupvä'] . "</td>"; 
+echo  "<td>" . $date["Maksupva"] .  "</td>";
 
 echo "</tr>"; 
 } 
@@ -38,4 +41,3 @@ echo "</table>";
   
 mysqli_close($con); 
   
-
