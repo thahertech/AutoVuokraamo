@@ -2,20 +2,24 @@
 $host = 'localhost'; $dbname = 't9alth00'; $username = 't9alth00'; $password = '';
 $con = mysqli_connect($host,$username,$password,$dbname); if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
+
 $result = mysqli_query($con,"SELECT * FROM Sopimus");
 
 echo "<table border='5'> <tr>
 <th>SopimusID</th>
 <th>idMaksurekisteri</th>
+<th>Aloituspvä</th>
 <th>Palautuspvä</th>
-<th>Aloituspvä</th> </tr>";
+</tr>";
 
 while($row = mysqli_fetch_array($result)) {
 echo "<tr>";
-echo "<td>" . $row['SopimusID'] . "</td>";
+echo "<td>" . $row [date('y-m-d')['Aloituspvä']] . "</td>";
+echo "<td>" . $row['SopimusID']                  . "</td>";
+
 echo "<td>" . $row['idMaksurekisteri']           .    "</td>";
+
 echo "<td>" . $row[date('y-m-d')['Palautuspvä']] .    "</td>";
-echo "<td>" . $row[date('y-m-d')['Aloituspvä']]  .    "</td>";
 
 
 }

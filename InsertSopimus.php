@@ -14,7 +14,7 @@ $SopimusID = mysqli_real_escape_string($con, $_POST['SopimusID']);
 $Palautuspvä = mysqli_real_escape_string($con,date('Y-m-d',$_POST['Palautuspvä']));
 $Aloituspvä = mysqli_real_escape_string($con,date('Y-m-d',$_POST['Aloituspvä']));
 echo "<td>" . $row ['Palautuspvä'] .    "</td>";
-$_POST[date('y-m-d')['Palautuspvä']];
+
 
 $sql = "INSERT INTO Sopimus (SopimusID , Palautuspvä , Aloituspvä)
 VALUES ('$SopimusID', '$Palautuspvä', '$Aloituspvä')";
