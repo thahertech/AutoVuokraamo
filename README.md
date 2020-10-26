@@ -1,2 +1,2 @@
 # AutoVuokraamo
-Ajoneuvo vuoraamo MYSQL -Tietokanta
+Autovuoraamo MYSQL -Tietokanta

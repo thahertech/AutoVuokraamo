@@ -15,8 +15,8 @@ $Osoite = mysqli_real_escape_string($con, $_POST["Osoite"]);
 $idSopimus = mysqli_real_escape_string($con, $_POST["idSopimus"]);
 
 
-$sql = "INSERT INTO  Asiakas ( Etunimi, Sukunimi, Osoite, idSopimus)
-VALUES ('$Etunimi', '$Sukunimi', '$Osoite','$idSopimus')";
+$sql = "INSERT INTO  Asiakas ( Etunimi, Sukunimi, Osoite)
+VALUES ('$Etunimi', '$Sukunimi', '$Osoite')";
 
 
 if (!mysqli_query($con, $sql)) {

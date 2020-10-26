@@ -10,14 +10,13 @@ if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
 $MaksuID = mysqli_real_escape_string($con,  $_POST["MaksuID"] );
 $Summa = mysqli_real_escape_string($con,    $_POST["Summa"]   );
-//$Maksettu = mysqli_real_escape_string($con, $_POST["Maksettu"]);
-//$Maksupvä = mysqli_real_escape_string($con, $_POST["Maksupvä"]);
 
-$Maksettu = mysqli_real_escape_string($con,$_POST["Maksettu"]);
 $Maksupvä = mysqli_real_escape_string($con,$_POST["Maksupvä"]);
-date('y-m-d');
-$sql = "INSERT INTO Maksurekisteri ( Summa, Maksettu, Maksupvä)
-VALUES ('$Summa', '$Maksettu', '$Maksupvä')";
+$Maksettu = mysqli_real_escape_string($con,$_POST["Maksettu"]);
+
+
+$sql = "INSERT INTO Maksurekisteri (MaksuID, Summa,Maksupvä)
+VALUES ('$MaksuID','$Summa', '$Maksupvä')";
 
 
 if (!mysqli_query($con, $sql)) {

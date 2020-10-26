@@ -3,29 +3,38 @@ $host = 'localhost'; $dbname = 't9alth00'; $username = 't9alth00'; $password = '
 $con = mysqli_connect($host,$username,$password,$dbname); if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
 
-$result = mysqli_query($con,"SELECT * FROM Sopimus");
+$result = mysqli_query($con,"select * FROM Sopimustiedot");
 
 echo "<table border='5'> <tr>
 <th>SopimusID</th>
-<th>idMaksurekisteri</th>
 <th>Aloituspvä</th>
 <th>Palautuspvä</th>
+<th>Etunimi</th>
+<th>Sukunimi</th>
+<th>AsiakasID</th>
+
 </tr>";
 
-while($row = mysqli_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)){
 echo "<tr>";
-echo "<td>" . $row [date('y-m-d')['Aloituspvä']] . "</td>";
-echo "<td>" . $row['SopimusID']                  . "</td>";
+echo "<td>" . $row['SopimusID']             . "</td>";
+echo "<td>" . $row['idMaksurekisteri']      .    "</td>";
 
-echo "<td>" . $row['idMaksurekisteri']           .    "</td>";
+echo date('y-m-d')["<td>"]. $row['Aloituspvä']            . "</td>";
+echo "<td>" . $row['Palautuspvä']            . "</td>";
+echo "<td>" . $row['Etunimi']            . "</td>";
+echo "<td>" . $row['Sukunimi']            . "</td>";
+echo "<td>" . $row['AsiakasID']            . "</td>";
 
-echo "<td>" . $row[date('y-m-d')['Palautuspvä']] .    "</td>";
+
+
+
 
 
 }
 echo "</table>";
 
-$result = mysqli_query($con,"SELECT * FROM Ajoneuvo" );
+$result = mysqli_query($con," SELECT * FROM Ajoneuvo " );
 
      
 echo "<table border='5'> <tr>
@@ -66,20 +75,19 @@ $result = mysqli_query($con,"SELECT * FROM Maksurekisteri");
 echo "<table border='5'> <tr>
 <th>MaksuID</th>
 <th>Summa</th>
-<th>Maksettu</th>
 <th>Maksupvä</th> </tr>";
-while($row = mysqli_fetch_array($result)) { echo "<tr>";
+while($row = mysqli_fetch_array($result)) {
+echo "<tr>";
 echo "<td>" . $row['MaksuID'] . "</td>";
 echo "<td>" . $row['Summa'] . "</td>";
-echo "<td>" . $row['Maksettu'] . "</td>";
-echo "<td>" . $row['Maksupvä'] . "</td>"; echo "</tr>";
+echo "<td>" . $row['Maksupvä'] . "</td>"; 
+echo "</tr>";
 }
 echo "</table>";
-$result = mysqli_query($con,"select * from Sopimus JOIN Maksurekisteri ON Sopimus.idMaksurekisteri = Maksurekisteri.MaksuID;");
+$result = mysqli_query($con,"select * from Sopimus JOIN Maksurekisteri ON Sopimus.idMaksurekisteri = Maksurekisteri.MaksuID");
 
 echo "<table border='1'> <tr>
 <th>Sopimus Numero</th>
-<th>MaksureksteriID</th>
 <th>Palautuspvä</th>
 <th>Aloituspäivä</th>
 <th>MaksuID</th>
@@ -88,7 +96,6 @@ echo "<table border='1'> <tr>
 </tr>";
 while($row = mysqli_fetch_array($result)) { echo "<tr>";
 echo "<td>" . $row['SopimusID'] . "</td>";
-echo "<td>" . $row['idMaksurekisteri'] . "</td>";
 echo "<td>" . $row["Palautuspvä"]    . "</td>";
 echo "<td>" . $row['Aloituspvä'] . "</td>";
 echo "<td>" . $row['MaksuID'] . "</td>";
